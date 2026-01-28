@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from typing import Any, List, Optional, Tuple
 import argparse
 
+import Verifier
+
 @dataclass
 class Hospital:
     # Index acts as the unique number for the hospital
@@ -75,10 +77,13 @@ def solver(problem: Problem) -> Solution:
                 student.matching = hospital
                 hospital.matching = student
                 break
-            elif ranking(student, hospital) < ranking(student, student.matching):
+            elif student.matching != hospital and ranking(student, hospital) < ranking(student, student.matching):
+                # Unmatch less favorable hospital
                 hospital_prime = student.matching
                 hospital_prime.matching = None
+                # Match this hospital to student
                 student.matching = hospital
+                hospital.matching = student
                 # A previous hospital just lost their matching, so revisit earlier hospitals too
                 hospital_index = 0
                 break
@@ -86,11 +91,11 @@ def solver(problem: Problem) -> Solution:
     for hospital in problem.hospitals:
         assert(hospital.matching is not None)
         assert(hospital.matching.matching == hospital)
-        solution.append((hospital.index + 1, hospital.matching.index + 1))
+        solution.append((hospital.index, hospital.matching.index))
     return Solution(solution)
 
 def solution_formatter(solution: Solution) -> str:
-    return "\n".join([f"{i} {j}" for i, j in solution.matchings])
+    return "\n".join([f"{i + 1} {j + 1}" for i, j in solution.matchings])
 
 
 if __name__ == "__main__":
@@ -100,6 +105,8 @@ if __name__ == "__main__":
     problem_input = open(args.path)
     problem = input_parser(problem_input.read())
     solution = solver(problem)
-
     print(solution_formatter(solution))
+
+    verifier = Verifier.Verifier({hospital.index: hospital.preferences for hospital in problem.hospitals}, {student.index: student.preferences for student in problem.students}, solution.matchings)
+
 
