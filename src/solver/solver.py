@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from typing import List, Optional, Tuple
+from typing import Any, List, Optional, Tuple
+import argparse
 
 @dataclass
 class Hospital:
@@ -8,7 +9,7 @@ class Hospital:
     # Ordered list of preferences, from most to least preferential
     preferences: List[int]
     # Matching between Hospital and Student
-    matching: Optional[Student] = None
+    matching: Optional[Any] = None
 
 @dataclass
 class Student:
@@ -39,12 +40,12 @@ def input_parser(text: str) -> Problem:
     n = int(lines[0].strip())
     for i in range(1, n + 1):
         index = i - 1
-        preferences = [int(index) - 1 for index in lines[i].split(' ')]
+        preferences = [int(preference) - 1 for preference in lines[i].split(' ')]
         hospitals.append(Hospital(index, preferences))
 
     for i in range(n + 1, 2 * n + 1):
         index = i - (n + 1)
-        preferences = [int(index) - 1 for index in lines[i].split(' ')]
+        preferences = [int(preference) - 1 for preference in lines[i].split(' ')]
         students.append(Student(index, preferences))
 
     return Problem(hospitals, students)
@@ -86,4 +87,19 @@ def solver(problem: Problem) -> Solution:
         assert(hospital.matching is not None)
         assert(hospital.matching.matching == hospital)
         solution.append((hospital.index + 1, hospital.matching.index + 1))
-    return solution
+    return Solution(solution)
+
+def solution_formatter(solution: Solution) -> str:
+    return "\n".join([f"{i} {j}" for i, j in solution.matchings])
+
+
+if __name__ == "__main__":
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument("path")
+    args = argparser.parse_args()
+    problem_input = open(args.path)
+    problem = input_parser(problem_input.read())
+    solution = solver(problem)
+
+    print(solution_formatter(solution))
+
