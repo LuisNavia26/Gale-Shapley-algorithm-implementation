@@ -1,5 +1,4 @@
-def Verifier(MP, WP, matches):
-
+def Verifier(MP,WP, matches):
     #Turn all the inputs into dict
     if isinstance(matches,dict):
         MtoW = dict(matches)
@@ -53,3 +52,10 @@ def Verifier(MP, WP, matches):
                 return "unbalnced"
     return "Valid"
 
+def InputParser (input):
+    output = {}
+    for line in input.splitlines() :
+         line = line.strip()
+         M, W = line.split(" ")
+         output[M] = W
+    return output
