@@ -57,5 +57,5 @@ def InputParser (input):
     for line in input.splitlines() :
          line = line.strip()
          M, W = line.split(" ")
-         output[M] = W
+         output[int(M)-1] = int(W)-1
     return output
