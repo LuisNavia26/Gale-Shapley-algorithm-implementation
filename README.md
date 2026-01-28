@@ -1,4 +1,4 @@
-# Gale-Shapley-algorithm-implementation by Sherif Abdou (UFID) & Luis A Navia (67904582)
+# Gale-Shapley-algorithm-implementation by Sherif Abdou (74195059) & Luis A Navia (67904582)
 Implementation of the Gale Shapley algorithm to match students with Hospitals on a stable manner, 
 this implementation will also have a verifier that checks whether said proposed matching is valid and stable.
 For this algorithm we will be working under the assumption that the number of Hospitals and the number of un Students are the same, 
