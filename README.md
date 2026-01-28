@@ -8,3 +8,10 @@ the students preference list. This algorithm will run until n pairs are made tha
 will run and output one of three things, "VALID STABLE" meaning all the pairs are valid and stable, 
 "INVALID", "UNSTABLE" or "INVALID AND UNSTABLE" depending on the case, we will be using the observations
 provided in class by Prof. Boucher to determine whether the output is Valid, Unvalid or unstable.
+
+INSTRUCTIONS TO RUN PROJECT
+To run this project it is needed to run it terminal, the comands needed are 
+python main.py [solve] [file for input] -o [name of file for input] -t
+python main.py [verify] [file for input] [output file] -t
+this will either print or create a file with the given name and time it took to run
+-t is an optional choise for timing run time
