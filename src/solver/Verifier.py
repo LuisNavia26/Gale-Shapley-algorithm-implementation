@@ -27,15 +27,13 @@ def Verifier(MP, WP, matches):
         seenW.add(w)
 
     WtoM = {w: m for m, w in MtoW.items()}
-
     Mranks = {
         m: {w: i for i, w in enumerate(pref_list)}
-        for m, pref_list in men.items()
+        for m, pref_list in MP.items()
     }
-
     Wranks = {
         w: {m: i for i, m in enumerate(pref_list)}
-        for w, pref_list in women.items()
+        for w, pref_list in WP.items()
     }
 
     #Checks Stability
@@ -45,7 +43,7 @@ def Verifier(MP, WP, matches):
             continue
         currentW = MtoW[m]
 
-        for w in men[m]:
+        for w in MP[m]:
             if w == currentW:
                 break
             wcurrentm = WtoM.get(w, None)
