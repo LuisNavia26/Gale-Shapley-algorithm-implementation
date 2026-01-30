@@ -15,3 +15,4 @@ python main.py [solve] [file for input] -o [name of file for input] -t
 python main.py [verify] [file for input] [output file] -t
 this will either print or create a file with the given name and time it took to run
 -t is an optional choise for timing run time
+![Graph of time over n inputs](image.png)
