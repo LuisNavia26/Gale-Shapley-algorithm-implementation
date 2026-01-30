@@ -11,9 +11,9 @@ provided in class by Prof. Boucher to determine whether the output is Valid, Unv
 
 # INSTRUCTIONS TO RUN PROJECT
 To run this project it is needed to run it terminal, the comands needed are 
-# TO SOLVE
+TO SOLVE
   -> "python main.py [solve] [file for input] -o [name of file for input] -t"
-# TO VERIFY
+TO VERIFY
    ->  "python main.py [verify] [file for input] [output file] -t"
 this will either print or create a file with the given name and time it took to run
 -t is an optional choise for timing run time
