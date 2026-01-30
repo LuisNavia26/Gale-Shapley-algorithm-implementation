@@ -23,5 +23,8 @@ this will either print or create a file with the given name and time it took to 
 NOTE THAT TO RUN THE FILES FOR INPUT, IF THEY'RE ON ANOHTER CARPET IT IS NEEDED TO RUN "../"
 eg. "python main.py solve ../examples/input.in -o ../examples/output.out -t"
 
-# GRAPH OF RUN TIME/INPUT  OF N
-![Graph of time over n inputs](image.png)
+# Verifier Graph
+![Graph of time over n inputs](Verifier.png)
+
+# Solver Graph
+![Graph of time over n inputs](Solver.png)
