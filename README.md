@@ -10,21 +10,29 @@ will run and output one of three things, "VALID STABLE" meaning all the pairs ar
 provided in class by Prof. Boucher to determine whether the output is Valid, Unvalid or unstable.
 
 # INSTRUCTIONS TO RUN PROJECT
+The only dependency for this project is python 3.10+
+
 To run this project it is needed to run it terminal, the comands needed are 
 
 TO SOLVE
-  -> "python main.py [solve] [file for input] -o [name of file for input] -t"
+  -> `python src/main.py solve [input file] -o [name of file to output to] [-t]`
+
+Example:
+`python src/main.py solve examples/input.in -o examples/output.out`
   
 TO VERIFY
-   ->  "python main.py [verify] [file for input] [output file] -t"
-   
-this will either print or create a file with the given name and time it took to run
--t is an optional choise for timing run time
-NOTE THAT TO RUN THE FILES FOR INPUT, IF THEY'RE ON ANOHTER CARPET IT IS NEEDED TO RUN "../"
-eg. "python main.py solve ../examples/input.in -o ../examples/output.out -t"
+   ->  `python src/main.py verify [input file] [solver output file] [-t]`
+
+`python src/main.py verify examples/input.in examples/output.out`
+
+`-t` is an optional argument to print the time taken for the solver or verifier algorithm respectively.
 
 # Verifier Graph
 ![Graph of time over n inputs](Verifier.png)
 
+A trend noticed in this graph is that the execution time increases more and more as the number of hospitals/students scale.
+
 # Solver Graph
 ![Graph of time over n inputs](Solver.png)
+
+A similar trend noticed in this graph is that the execution time increases more and more as the number of hospitals/students scale.
