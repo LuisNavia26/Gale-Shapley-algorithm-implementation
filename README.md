@@ -11,7 +11,17 @@ provided in class by Prof. Boucher to determine whether the output is Valid, Unv
 
 # INSTRUCTIONS TO RUN PROJECT
 To run this project it is needed to run it terminal, the comands needed are 
-python main.py [solve] [file for input] -o [name of file for input] -t
-python main.py [verify] [file for input] [output file] -t
+
+TO SOLVE
+  -> "python main.py [solve] [file for input] -o [name of file for input] -t"
+  
+TO VERIFY
+   ->  "python main.py [verify] [file for input] [output file] -t"
+   
 this will either print or create a file with the given name and time it took to run
 -t is an optional choise for timing run time
+NOTE THAT TO RUN THE FILES FOR INPUT, IF THEY'RE ON ANOHTER CARPET IT IS NEEDED TO RUN "../"
+eg. "python main.py solve ../examples/input.in -o ../examples/output.out -t"
+
+# GRAPH OF RUN TIME/INPUT  OF N
+![Graph of time over n inputs](image.png)
